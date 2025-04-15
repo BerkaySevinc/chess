@@ -1,7 +1,8 @@
 # Chess
 
 **Chess Game** written in C#.</br>
-A chess engine library and demo application implementing standard rules and piece movements.
+A chess application that implements standard rules and piece movements.</br>
+The core game logic is separated into a reusable library, with a demo application included for interaction and play.
 </br>
 </br>
 
