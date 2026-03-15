@@ -17,4 +17,4 @@ The core game logic is separated into a reusable library, with a demo applicatio
 </br>
 
 # Medias
-![Video 1](https://github.com/BerkaySevinc/chess/blob/main/Introduction%20Media/Video%201.gif)
+![Video 1](Introduction%20Media/Video%201.gif)
