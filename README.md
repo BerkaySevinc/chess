@@ -16,5 +16,5 @@ The core game logic is separated into a reusable library, with a demo applicatio
 - Turn-based logic between white and black players.
 </br>
 
-# Medias
+# Media
 ![Video 1](Introduction%20Media/Video%201.gif)
