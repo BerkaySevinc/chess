@@ -1,5 +1,5 @@
 
-using BekoS.Chess;
+using Chess;
 
 
 
@@ -15,7 +15,7 @@ namespace ChessFromZeroTest
         }
 
        
-        private void Form1_Load(object sender, EventArgs e)
+        private void Main_Load(object sender, EventArgs e)
         {
 
             this.WindowState = FormWindowState.Maximized;

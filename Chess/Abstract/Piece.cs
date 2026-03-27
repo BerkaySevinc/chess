@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BekoS.Chess;
+namespace Chess;
 
 public abstract class Piece : IDisposable
 {
@@ -18,20 +18,16 @@ public abstract class Piece : IDisposable
         get => _square;
         set
         {
-            // Return If Same
             if (value == _square) return;
 
-            // Set Variables
             Square? previousSquare = _square;
             _square = value;
 
             // Set Previous Squares Piece To Null
             if (previousSquare is not null && previousSquare.Piece == this) previousSquare.Piece = null;
 
-            // If Square Null
             if (_square is null) return;
 
-            // If Square Not Null
             _square.Piece = this;
         }
     }

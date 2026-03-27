@@ -1,4 +1,4 @@
-﻿using BekoS.Chess;
+﻿using Chess;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Drawing.Color;
 
-namespace BekoS.Chess;
+namespace Chess;
 
 public class Square : IDisposable
 {
@@ -152,24 +152,20 @@ public class Square : IDisposable
         get => _piece;
         set
         {
-            // Return If Same
             if (value == _piece) return;
 
-            // Set Variables
             Piece? previousPiece = _piece;
             _piece = value;
 
             // Set Previous Pieces Square To Null
             if (previousPiece is not null && previousPiece.Square == this) previousPiece.Square = null;
 
-            // If Piece Null
             if (_piece is null)
             {
                 _pictureBox.Image = null;
                 return;
             }
 
-            // If Piece Not Null
             _piece.Square = this;
 
             _pictureBox.Image = _piece.Bitmap;

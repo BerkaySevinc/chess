@@ -9,39 +9,38 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace BekoS.Chess;
+namespace Chess;
 
 
 
 /*
+   TODO LIST:
 
-       TO DO LIST:
+   TODO: Consider whether IsLegalToMove should be removed from Square.
+   TODO: Consider whether removing Piece and all derived classes and replacing pieces with an enum would be more practical.
 
-       IsLegalToMove u square dan kaldırılmalı mı
-       Piece ve Pieceden derivered tüm classları kaldırıp, pieceleri enum yapmak daha mı mantıklı?
+   TODO: IsCheckMated could be added to King.
+   TODO: Rename IsChecked on Board to IsKingChecked, or keep as-is — undecided.
 
-       şaha IsCheckMated eklenebilir
-       boarddaki IsChecked yerine IsKingChecked yapılmalı sanırım veya böyle kalmalı bilmiyorum
+   TODO: For calculating king moves, instead of calling IsThreatened on each of the 8 surrounding squares individually, consider a bulk check.
+   TODO: When checking where the king can move, evaluate as if the king is not on its current square — the current system incorrectly allows the king to move to a square directly behind itself.
 
-       şahın gidebileceği yerler için her karede IsThreatened kullanmaktansa toplu olarak çevre 8 kareyi kontrol et
-       gidebiliceği yerleri kontrol ederken şah orda yokmuş gibi kontrol et çünkü şahın arkasındaki kareye gitmesine izin verio şuanki sistem
+   TODO: Board.SelectedSquare should probably be Board.SelectedPiece.
+   TODO: IsPlayable should belong to Piece rather than Square; the piece should update the PictureBox cursor on its square internally.
 
-       Board.SelectedSquare yerine Board.SelectedPiece olmalıydı sanırım
-       IsPlayable square yerine piece de olmalı, piece kendi içinden square daki picturebox cursorunu değişmeli bi şekilde
+   TODO: Castling must not be allowed while under threat.
+   TODO: Implement check detection.
+   TODO: Implement checkmate detection.
+   TODO: Implement stalemate detection.
+   TODO: Implement draw detection.
+   TODO: Implement pawn promotion.
+   TODO: The king must not be able to move to a threatened square, and discovered checks must be handled.
+   TODO: Implement draw rules (threefold repetition, 50-move rule, etc.).
 
-       tehtid altında castle atılamaz
-       check
-       checkmate
-       stalemate
-       draw
-       piyon sona gelme
-       şahlar tehtid edilen yere gidemez, şahın önü açılamaz
-       3 kere tekrarda, 50 hamlede vs. beraberlik kuralları
+   TODO: Decide whether to display location and size information.
 
-       location, size gösterilmelimi?
-
-       movemade, check, checkmate, stalemate, draw, piece taken etc. eventleri olabilir...
-       */
+   TODO: Add events for move made, check, checkmate, stalemate, draw, piece taken, etc.
+*/
 
 
 
@@ -341,7 +340,7 @@ public class Board : IDisposable
         if (thisMove.Type == MoveType.ShortCastle)
             this[toLetterIndex - 1, toNumberIndex]!.Piece = this[Squares.GetUpperBound(0), toNumberIndex]!.Piece;
 
-        //Is Checked
+        // Is Checked
         Square opponentKing = GetSquareListByPieceColor(Turn).Single(s => s.Piece is King);
         if (opponentKing.IsThreatened(piece.Color))
         {

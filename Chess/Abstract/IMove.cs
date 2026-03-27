@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BekoS.Chess;
+namespace Chess;
 
 public interface IMove
 {

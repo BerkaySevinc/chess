@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BekoS.Chess;
+namespace Chess;
 
 public class Pawn : Piece
 {
@@ -26,7 +26,7 @@ public class Pawn : Piece
         // Moves
         var legalSquares = new List<Square>();
 
-        // Standart Move
+        // Standard Move
         Square? squareFront = board[letterIndex, numberIndex + direction];
         if (squareFront is not null && squareFront.Piece is null)
         {
