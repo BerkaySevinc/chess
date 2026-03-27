@@ -11,6 +11,40 @@ using System.Xml.Linq;
 
 namespace BekoS.Chess;
 
+
+
+/*
+
+       TO DO LIST:
+
+       IsLegalToMove u square dan kaldırılmalı mı
+       Piece ve Pieceden derivered tüm classları kaldırıp, pieceleri enum yapmak daha mı mantıklı?
+
+       şaha IsCheckMated eklenebilir
+       boarddaki IsChecked yerine IsKingChecked yapılmalı sanırım veya böyle kalmalı bilmiyorum
+
+       şahın gidebileceği yerler için her karede IsThreatened kullanmaktansa toplu olarak çevre 8 kareyi kontrol et
+       gidebiliceği yerleri kontrol ederken şah orda yokmuş gibi kontrol et çünkü şahın arkasındaki kareye gitmesine izin verio şuanki sistem
+
+       Board.SelectedSquare yerine Board.SelectedPiece olmalıydı sanırım
+       IsPlayable square yerine piece de olmalı, piece kendi içinden square daki picturebox cursorunu değişmeli bi şekilde
+
+       tehtid altında castle atılamaz
+       check
+       checkmate
+       stalemate
+       draw
+       piyon sona gelme
+       şahlar tehtid edilen yere gidemez, şahın önü açılamaz
+       3 kere tekrarda, 50 hamlede vs. beraberlik kuralları
+
+       location, size gösterilmelimi?
+
+       movemade, check, checkmate, stalemate, draw, piece taken etc. eventleri olabilir...
+       */
+
+
+
 public class Board : IDisposable
 {
     public Form Form { get; }
